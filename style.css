@@ -1,4 +1,24 @@
 *{
     box-sizing: border-box;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+
+body{
+    overflow: hidden;
+    height: 100vh;
+    display:flex;
+}
+
+input{
+    height: 2rem;
+    width: 20rem;
+    border-radius: 10px;
+}
+
+.block{
+    position: absolute;
+    margin: 50%;
 }

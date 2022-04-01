@@ -6,13 +6,38 @@ const options = {
 	}
 };
 
-fetch('https://love-calculator.p.rapidapi.com/getPercentage?sname=Alice&fname=John', options)
+fetch('https://love-calculator.p.rapidapi.com/getPercentage?sname=david&fname=fifi', options)
 	.then(response => response.json())
-	.then(response => {
-        console.log(response)
+	.then(data => {
+        const snamei = addsnamei(data.sname)
+        const fnamei = addFnamei(data.fname)
+        const h2 = addH2(data.percentage)
+        const h3 = addAresult(data.result)
+        console.log(data)        
     });
+    
+    function addsnamei(){
+       const snamei = document.getElementById('sname').value
+       return snamei
+    }
 
-function sname(){
-    const iSname = document.getElementById('#sname')
-    console.log(iSname)
-}
+    function addFnamei(){
+        const fnamei = document.getElementById('fname').value
+        return fnamei
+     }
+ 
+
+     function addH2(){
+        const percentage = document.getElementById('percentage')
+        return percentage
+     }
+ 
+    
+     function addAresult(){
+        const result = document.getElementById('result')
+        return result
+     }
+ 
+
+
+
