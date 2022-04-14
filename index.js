@@ -9,41 +9,40 @@ const btn = document
   .querySelector("#btn")
   .addEventListener("click", function () {
     fetch(
-      `https://love-calculator.p.rapidapi.com/getPercentage?sname=${sname}&fname=${fname}`,
+      `https://love-calculator.p.rapidapi.com/getPercentage?sname=${sname.value}&fname=${fname.value}`,
       options
     )
       .then((response) => response.json())
-      .then((response) => addCouple(response))
+      .then((data) => makeLove(data))
       .catch((err) => console.error(err));
   });
+function makeLove(love){
+  const {fname, sname, percentage, result} = love
+  makePercentage(percentage)
+  makeResult(result)
+}
+
+function makePercentage(percentage){
+document.querySelector('.percentage').textContent = `${percentage} % `
+}
+
+function makeResult(result){
+  document.querySelector('.result').textContent = result
+}
 
 const fname = document
   .querySelector("#fname")
-  .addEventListener("input", function () {
-    return fname;
-  });
+  
 
 const sname = document
   .querySelector("#sname")
-  .addEventListener("input", function () {
-    return sname;
-  });
-function addCouple(response){
-   const percentage = makePercentage(response.percentage)
-   const result = makeResult(response.result)
-   percentage.appendChild(percentage)
-   result.appendChild(result)
+ 
 
-}
+//--------------------------------------------------------------
 
-function makePercentage(response) {
-  const percentage = document.createElement("h2");
-  percentage.innerHTML = response.percentage;
-  return percentage;
-}
+  function bonjour(prenom,b,age){
+     return(`bonjour ${prenom} ${b} ${age}`)
+  }
 
-function makeResult(response) {
-  const result = document.createElement("h2");
-  result.innerHTML = response.result;
-  return result;
-}
+  const phrase = bonjour("david", "FE", 27)
+  console.log(phrase)
